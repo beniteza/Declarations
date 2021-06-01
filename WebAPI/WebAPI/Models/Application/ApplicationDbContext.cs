@@ -14,5 +14,8 @@ namespace WebAPI.Models.Application
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<PublicDeclaration> PublicDeclaration { get; set; }
+        public DbSet<PublicDeclarationSignature> PublicDeclarationSignature { get; set; }
     }
 }

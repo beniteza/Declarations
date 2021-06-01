@@ -16,5 +16,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Home\" />
+    <Folder Include="Models\PublicDeclaration\" />
+  </ItemGroup>
+
 
 </Project>
