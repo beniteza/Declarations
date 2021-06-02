@@ -10,8 +10,8 @@ using WebAPI.Models.Application;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210601021140_Added PublicDeclaration")]
-    partial class AddedPublicDeclaration
+    [Migration("20210602211631_Added additional user properties")]
+    partial class Addedadditionaluserproperties
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -171,6 +171,10 @@ namespace WebAPI.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -217,7 +221,7 @@ namespace WebAPI.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("WebAPI.Models.Application.PublicDeclaration", b =>
+            modelBuilder.Entity("WebAPI.Models.Application.Petition", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -247,10 +251,10 @@ namespace WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PublicDeclaration");
+                    b.ToTable("Petition");
                 });
 
-            modelBuilder.Entity("WebAPI.Models.Application.PublicDeclarationSignature", b =>
+            modelBuilder.Entity("WebAPI.Models.Application.PetitionSignature", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -268,7 +272,7 @@ namespace WebAPI.Migrations
 
                     b.HasIndex("PublicDeclarationId");
 
-                    b.ToTable("PublicDeclarationSignature");
+                    b.ToTable("PetitionSignature");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -322,20 +326,20 @@ namespace WebAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WebAPI.Models.Application.PublicDeclarationSignature", b =>
+            modelBuilder.Entity("WebAPI.Models.Application.PetitionSignature", b =>
                 {
-                    b.HasOne("WebAPI.Models.Application.PublicDeclaration", "PublicDeclaration")
-                        .WithMany("PublicDeclarationSignatureList")
+                    b.HasOne("WebAPI.Models.Application.Petition", "Petition")
+                        .WithMany("PetitionSignatureList")
                         .HasForeignKey("PublicDeclarationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PublicDeclaration");
+                    b.Navigation("Petition");
                 });
 
-            modelBuilder.Entity("WebAPI.Models.Application.PublicDeclaration", b =>
+            modelBuilder.Entity("WebAPI.Models.Application.Petition", b =>
                 {
-                    b.Navigation("PublicDeclarationSignatureList");
+                    b.Navigation("PetitionSignatureList");
                 });
 #pragma warning restore 612, 618
         }

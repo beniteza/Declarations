@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebAPI.Models.Application
 {
-    public class PublicDeclaration
+    public class Petition
     {
         [Key]
         public int Id { get; set; }
@@ -18,10 +18,10 @@ namespace WebAPI.Models.Application
         [Required]
         public DateTime SubmittedDate { get; set; }
         [Required]
-        public DateTime DeclarationDate { get; set; }
+        public DateTime PetitionDate { get; set; }
         [Required]
         public string State { get; set; }
 
-        public List<PublicDeclarationSignature> PublicDeclarationSignatureList { get; set; }
+        public List<PetitionSignature> PetitionSignatureList { get; set; }
     }
 }
