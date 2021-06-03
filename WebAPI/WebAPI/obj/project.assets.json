@@ -6680,11 +6680,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Axviel\\Desktop\\Declarations\\WebAPI\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Axviel\\Desktop\\Git_Repos\\Petitions\\WebAPI\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "C:\\Users\\Axviel\\Desktop\\Declarations\\WebAPI\\WebAPI\\WebAPI.csproj",
+      "projectPath": "C:\\Users\\Axviel\\Desktop\\Git_Repos\\Petitions\\WebAPI\\WebAPI\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\Axviel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Axviel\\Desktop\\Declarations\\WebAPI\\WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\Axviel\\Desktop\\Git_Repos\\Petitions\\WebAPI\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Axviel\\AppData\\Roaming\\NuGet\\NuGet.Config",
