@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
             });
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("AccountInfo")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AccountInfo([FromBody] AccountInfoModel model)
