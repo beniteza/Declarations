@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -24,20 +23,27 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("UpdateAccount")]
-        public async Task<Object> AccountInfo()
+        [Route("AccountInfo")]
+        public async Task<IActionResult> AccountInfo()
         {
             string username = User.Claims.First(c => c.Type == ClaimTypes.Name).Value;
 
             var user = await _userManager.FindByNameAsync(username);
-            return new
+            return Ok(new
             {
-                user.Email
-            };
+                user.Email,
+                user.FirstName,
+                user.LastName,
+                user.DateOfBirth,
+                user.Country,
+                user.City,
+                user.AddressLine,
+                user.ZipCode
+            });
         }
 
         [HttpPost]
-        [Route("UpdateAccount")]
+        [Route("AccountInfo")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AccountInfo([FromBody] AccountInfoModel model)
         {

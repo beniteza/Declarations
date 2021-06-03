@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [Route("Login")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await userManager.FindByNameAsync(model.Username);
@@ -74,7 +74,7 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [Route("Register")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             var userExists = await userManager.FindByNameAsync(model.Username);
@@ -87,8 +87,13 @@ namespace WebAPI.Controllers
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username,
-
-                [ValidateAntiForgeryToken]
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                DateOfBirth = model.DateOfBirth,
+                Country = model.Country,
+                City = model.City,
+                AddressLine = model.AddressLine,
+                ZipCode = model.ZipCode
             };
 
             var result = await userManager.CreateAsync(user, model.Password);
