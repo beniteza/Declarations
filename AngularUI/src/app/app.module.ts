@@ -21,6 +21,8 @@ import { ChangePasswordComponent } from './components/account/change-password/ch
 import { PetitionListComponent } from './components/petition/petition-list/petition-list.component';
 import { MyPetitionListComponent } from './components/petition/my-petition-list/my-petition-list.component';
 import { UnauthorizedComponent } from './components/home/unauthorized/unauthorized.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { PageLoadingComponent } from './components/shared/page-loading/page-loading.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { UnauthorizedComponent } from './components/home/unauthorized/unauthoriz
     PetitionListComponent,
     MyPetitionListComponent,
     NotFoundComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    NavbarComponent,
+    PageLoadingComponent
   ],
   imports: [
     BrowserModule,

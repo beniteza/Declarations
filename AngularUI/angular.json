@@ -24,9 +24,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/around-theme/css/theme.css",
+              "src/around-theme/vendor/simplebar/dist/simplebar.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/around-theme/js/theme.js",
+              "src/around-theme/vendor/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/around-theme/vendor/simplebar/dist/simplebar.min.js",
+              "src/around-theme/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"
+            ]
           },
           "configurations": {
             "production": {
