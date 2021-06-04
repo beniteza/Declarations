@@ -31,6 +31,7 @@ namespace WebAPI.Controllers
             var user = await _userManager.FindByNameAsync(username);
             return Ok(new
             {
+                user.UserName,
                 user.Email,
                 user.FirstName,
                 user.LastName,
