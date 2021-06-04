@@ -1,1 +1,48 @@
-<p>login works!</p>
+<section class="container d-flex justify-content-center align-items-center pt-2 pb-4" style="flex: 1 0 auto;">
+
+  <div class="signin-form mt-3">
+    <div class="signin-form-inner">
+      
+      <div id="signup-view">
+
+        <h1 class="h2 text-center">Login</h1>
+        <p class="fs-ms text-muted mb-4 text-center">Sign in to your account using the username and password provided during registration.</p>
+
+        <form [formGroup]="formModel" autocomplete="off" (submit)="onSubmit()">
+
+          <div class="row">
+
+            <div class="col-12 form-group required mb-3">
+              <label class="form-label">Username</label>
+              <input class="form-control" type="text" formControlName="UserName">
+              <label class="text-danger"
+                *ngIf="formModel.get('UserName')!.touched && formModel.get('UserName')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+            <div class="col-12 form-group required mb-3">
+              <label class="form-label">Password</label>
+              <input class="form-control" type="password" formControlName="Password">
+              <label class="text-danger"
+                *ngIf="formModel.get('Password')!.touched && formModel.get('Password')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-12">
+              <button type="submit" class="btn btn-primary d-block w-100" [disabled]="!formModel.valid">Login</button>
+            </div>
+          </div>
+
+          <p class="fs-sm pt-3 mb-0 text-center">Don't have an account? <a class='fw-medium' [routerLink]="['/register']">Register</a></p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</section>
