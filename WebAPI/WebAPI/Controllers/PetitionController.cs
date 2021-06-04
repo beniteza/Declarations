@@ -235,8 +235,6 @@ namespace WebAPI.Controllers
 
             var result = await _db.SaveChangesAsync();
 
-            //todo what do the result numbers mean?
-
             return Ok(result);
         }
 

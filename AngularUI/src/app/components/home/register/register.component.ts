@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('token') != null)
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/petition/list');
 
     this.formModel = this.fb.group({
       FirstName: ['', Validators.required],
