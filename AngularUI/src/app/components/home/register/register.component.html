@@ -1,1 +1,136 @@
-<p>register works!</p>
+<section class="container d-flex justify-content-center align-items-center pt-2 pb-4" style="flex: 1 0 auto;">
+
+  <div class="signin-form mt-3">
+    <!-- TODO change for login 'signin' -->
+    <div class="register-form-inner">
+      
+      <div id="signup-view">
+
+        <h1 class="h2 text-center">Register</h1>
+        <p class="fs-ms text-muted mb-4 text-center">Registration allows you to submit petitions!</p>
+
+        <form [formGroup]="formModel" autocomplete="off" (submit)="onSubmit()">
+
+          <div class="row">
+
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">First name</label>
+              <input class="form-control" type="text" formControlName="FirstName">
+              <label class="text-danger"
+                *ngIf="formModel.get('FirstName')!.touched && formModel.get('FirstName')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Last name</label>
+              <input class="form-control" type="text" formControlName="LastName">
+              <label class="text-danger"
+                *ngIf="formModel.get('LastName')!.touched && formModel.get('LastName')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Username</label>
+              <input class="form-control" formControlName="UserName">
+              <label class="text-danger"
+                *ngIf="formModel.get('UserName')!.touched && formModel.get('UserName')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Email</label>
+              <input class="form-control" formControlName="Email">
+              <label class="text-danger"
+                *ngIf="formModel.get('Email')!.touched && formModel.get('Email')!.errors?.required">This
+                field is required.</label>
+              <label class="text-danger"
+                *ngIf="formModel.get('Email')!.touched && formModel.get('Email')!.errors?.email">Invalid email
+                address.</label>
+            </div>
+
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Date of birth</label>
+              <input type="date" class="form-control" formControlName="DateOfBirth">
+              <label class="text-danger"
+                *ngIf="formModel.get('DateOfBirth')!.touched && formModel.get('DateOfBirth')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Country</label>
+              <input class="form-control" formControlName="Country">
+              <label class="text-danger"
+                *ngIf="formModel.get('Country')!.touched && formModel.get('Country')!.errors?.required">This
+                field is required.</label>
+            </div>
+          
+            <div class="col-sm-12 form-group required mb-3">
+              <label class="form-label">Address Line</label>
+              <input class="form-control" formControlName="AddressLine">
+              <label class="text-danger"
+                *ngIf="formModel.get('AddressLine')!.touched && formModel.get('AddressLine')!.errors?.required">This
+                field is required.</label>
+            </div>
+          
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">City</label>
+              <input class="form-control" formControlName="City">
+              <label class="text-danger"
+                *ngIf="formModel.get('City')!.touched && formModel.get('City')!.errors?.required">This
+                field is required.</label>
+            </div>
+          
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Zip Code</label>
+              <input class="form-control" formControlName="ZipCode">
+              <label class="text-danger"
+                *ngIf="formModel.get('ZipCode')!.touched && formModel.get('ZipCode')!.errors?.required">This
+                field is required.</label>
+              <label class="text-danger"
+                *ngIf="formModel.get('ZipCode')!.touched && (formModel.get('ZipCode')!.errors?.maxlength || formModel.get('ZipCode')!.errors?.minlength)">Total of
+                5 characters are required.</label>
+            </div>
+
+          </div>
+        
+          <div formGroupName="Passwords" class="row">
+        
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" formControlName="Password">
+              <label class="text-danger"
+                *ngIf="formModel.get('Passwords.Password')!.touched && formModel.get('Passwords.Password')!.errors?.required">This
+                field is required.</label>
+              <label class="text-danger"
+                *ngIf="formModel.get('Passwords.Password')!.touched && formModel.get('Passwords.Password')!.errors?.minlength">Minimum
+                4 characters required.</label>
+            </div>
+        
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" formControlName="ConfirmPassword">
+              <label class="text-danger"
+                *ngIf="formModel.get('Passwords.ConfirmPassword')!.touched && formModel.get('Passwords.ConfirmPassword')!.errors?.required">This
+                field is required.</label>
+              <label class="text-danger"
+                *ngIf="formModel.get('Passwords.ConfirmPassword')!.touched && formModel.get('Passwords.ConfirmPassword')!.errors?.passwordMismatch">Confirm
+                Password does not match.</label>
+            </div>
+        
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-12">
+              <button type="submit" class="btn btn-primary d-block w-100" [disabled]="!formModel.valid">Register</button>
+            </div>
+          </div>
+
+          <p class="fs-sm pt-3 mb-0 text-center">Already have an account? <a class='fw-medium' [routerLink]="['/login']">Login</a></p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</section>

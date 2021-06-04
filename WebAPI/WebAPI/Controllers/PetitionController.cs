@@ -130,9 +130,7 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Add(PetitionModel model)
         {
             if (!ModelState.IsValid)
-            {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "An error ocurred" });
-            }
 
             // Get UserId
             string userId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
@@ -174,9 +172,7 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Update(PetitionModel model)
         {
             if (!ModelState.IsValid)
-            {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "An error ocurred" });
-            }
 
             if (model.Id == null || model.Id == 0)
             {

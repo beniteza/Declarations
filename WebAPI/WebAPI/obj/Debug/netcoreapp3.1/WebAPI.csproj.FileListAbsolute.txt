@@ -204,3 +204,4 @@ C:\Users\Axviel\Desktop\Git_Repos\Petitions\WebAPI\WebAPI\obj\Debug\netcoreapp3.
 C:\Users\Axviel\Desktop\Git_Repos\Petitions\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.dll
 C:\Users\Axviel\Desktop\Git_Repos\Petitions\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.pdb
 C:\Users\Axviel\Desktop\Git_Repos\Petitions\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.genruntimeconfig.cache
+C:\Users\Axviel\Desktop\Git_Repos\Petitions\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csprojAssemblyReference.cache

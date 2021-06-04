@@ -34,6 +34,9 @@ namespace WebAPI.Controllers
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
+            if (!ModelState.IsValid)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "An error ocurred" });
+
             var user = await userManager.FindByNameAsync(model.Username);
 
             if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
@@ -77,6 +80,9 @@ namespace WebAPI.Controllers
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
+            if (!ModelState.IsValid)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "An error ocurred" });
+
             var userExists = await userManager.FindByNameAsync(model.Username);
 
             if (userExists != null)

@@ -47,6 +47,9 @@ namespace WebAPI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AccountInfo([FromBody] AccountInfoModel model)
         {
+            if (!ModelState.IsValid)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "An error ocurred" });
+
             // Get user
             string username = User.Claims.First(c => c.Type == ClaimTypes.Name).Value;
             var user = await _userManager.FindByNameAsync(username);
@@ -71,6 +74,9 @@ namespace WebAPI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel model)
         {
+            if (!ModelState.IsValid)
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "An error ocurred" });
+
             // Check if passwords match
             if (model.NewPassword != model.ConfirmNewPassword)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Passwords do not match." });
