@@ -10,6 +10,9 @@ namespace WebAPI.Models.Petition
     {
         public int? Id { get; set; }
 
+        [Required(ErrorMessage = "PetitionId is required")]
+        public int PetitionId { get; set; }
+
         [Required(ErrorMessage = "FirstName is required")]
         public string FirstName { get; set; }
 
@@ -19,5 +22,8 @@ namespace WebAPI.Models.Petition
         [EmailAddress]
         [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Message is required")]
+        public string Message { get; set; }
     }
 }

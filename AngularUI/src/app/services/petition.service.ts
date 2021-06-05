@@ -54,4 +54,8 @@ export class PetitionService {
   delete(id: number){
     return this.http.delete(this.baseURI + '/Delete?id=' + id);
   }
+
+  addSignature(formData: any){
+    return this.http.post(this.baseURI + '/AddSignature', formData);
+  }
 }

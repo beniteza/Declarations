@@ -1,1 +1,109 @@
-<p>petition works!</p>
+<div class="container">
+  <div *ngIf="petition" class="row justify-content-center">
+    <!-- Content-->
+    <div class="col-lg-9 mt-4 py-2 px-4 mb-2 mb-sm-0 pb-sm-2" style="background-color: #fff">
+      <div  style="max-width: 38rem;">
+        <h1>{{petition.title}}</h1>
+      </div>
+      <!-- Petition author -->
+      <div class="row position-relative g-0 align-items-center border-top border-bottom mb-2">
+
+        <div class="col-md-6 py-3 pe-md-3">
+          <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+            <div class="d-flex align-items-center me-grid-gutter">
+              <div class="ps-2">
+                <h6 class="nav-heading mb-1">{{petition.author}}</h6>
+                <div class="text-nowrap">
+                  <div class="meta-link fs-xs">
+                    <i class="fas fa-calendar-week"></i>&nbsp;&nbsp;{{petition.petitionDate | date : 'MMM d, y'}}
+                  </div>
+                  <span class="meta-divider"></span>
+                  <div class="meta-link fs-xs">
+                    <i class="fas fa-hourglass-half"></i>&nbsp;&nbsp;{{petition.updatedDate | date : 'MMMM d, y, h:mm a' }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="d-none d-md-block position-absolute border-start h-100" style="top: 0; left: 50%; width: 1px;"></div>
+
+        <div class="col-md-6 ps-md-3 py-3">
+          <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+            <h6 class="text-nowrap my-2 ">Topic:</h6>
+            <p class="ms-2 my-2">{{petition.topic}}</p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Description -->
+      <p class="py-3">
+        {{petition.description}}
+      </p>
+
+    </div>
+
+    <div class="col-lg-9 mt-2 py-3 px-4 mb-2 mb-sm-0 pb-sm-2" style="background-color: #fff">
+      <h2 class="h3 ">Add your signature</h2>
+      <form [formGroup]="formModel" autocomplete="off" (submit)="onSubmit()" class="p-1 p-lg-2 mt-4">
+        <div class="row">
+          <div class="col-sm-3 mb-3">
+            <label class="form-label">First name<sup class="text-danger ms-1">*</sup></label>
+            <input class="form-control" type="text" formControlName="FirstName">
+            <label class="text-danger"
+              *ngIf="formModel.get('FirstName')!.touched && formModel.get('FirstName')!.errors?.required">This
+              field is required.</label>
+          </div>
+          <div class="col-sm-3 mb-3">
+            <label class="form-label">Last name<sup class="text-danger ms-1">*</sup></label>
+            <input class="form-control" type="text" formControlName="LastName">
+            <label class="text-danger"
+              *ngIf="formModel.get('LastName')!.touched && formModel.get('LastName')!.errors?.required">This
+              field is required.</label>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label class="form-label">Email <sup class="text-danger ms-1">*</sup></label>
+            <input class="form-control" type="email" formControlName="Email">
+            <label class="text-danger"
+              *ngIf="formModel.get('Email')!.touched && formModel.get('Email')!.errors?.required">This
+              field is required.</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Message<sup class="text-danger ms-1">*</sup></label>
+          <textarea class="form-control" rows="3" placeholder="Write your message here" formControlName="Message"></textarea>
+          <label class="text-danger"
+            *ngIf="formModel.get('Message')!.touched && formModel.get('Message')!.errors?.required">This
+            field is required.</label>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!formModel.valid">Post signature</button>
+      </form>
+    </div>
+
+    <div class="col-lg-9 mt-2 py-3 px-4 mb-2 mb-sm-0 pb-sm-2" style="background-color: #fff">
+
+      <!-- Signatures-->
+      <div class="pb-4 mb-5" id="signatures">
+        <h2 class="h3 pb-4">{{petition.signatureList.length}} Signatures</h2>
+
+        <div class="signature" *ngFor="let signature of petition.signatureList | paginate: { itemsPerPage: 10, currentPage: p } ">
+          <div class="d-flex justify-content-between">
+            <h6 class="nav-heading mb-1">{{signature.firstName}} {{signature.lastName}} ({{signature.email}})</h6>
+            <small>{{signature.submittedDate | date : 'MMM d, y'}}</small>
+          </div>
+          <p>{{signature.message}}</p>
+          <hr>
+        </div>
+
+        <div class="my-pagination">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
