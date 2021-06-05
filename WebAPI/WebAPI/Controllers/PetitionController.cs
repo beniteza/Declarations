@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("MyPetitionList")]
+        [Route("MyList")]
         public async Task<IActionResult> MyPetitionList()
         {
             var userId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
@@ -72,7 +72,6 @@ namespace WebAPI.Controllers
                     petition.Title,
                     petition.Topic,
                     petition.Description,
-                    petition.UserId,
                     petition.UpdatedDate,
                     petition.PetitionDate,
                     petition.Country,

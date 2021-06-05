@@ -24,9 +24,9 @@ const routes: Routes = [
   {path: 'account-info', component: AccountInfoComponent, canActivate:[AuthGuard]},
   {path: 'petition/list', component: PetitionListComponent},
   {path: 'petition/my-list', component: MyPetitionListComponent, canActivate:[AuthGuard]},
-  {path: 'petition/:id', component: PetitionComponent},
   {path: 'petition/update/:id', component: AddUpdatePetitionComponent, canActivate:[AuthGuard]},
   {path: 'petition/add', component: AddUpdatePetitionComponent, canActivate:[AuthGuard]},
+  {path: 'petition/:id', component: PetitionComponent},
   {path: '**', redirectTo: '/not-found', pathMatch: 'full'},
 ];
 

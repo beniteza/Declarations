@@ -1,1 +1,48 @@
-<p>my-petition-list works!</p>
+<div class="container py-4 mb-2 mb-sm-0 pb-sm-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+
+      <div class="d-flex justify-content-between" >
+        <h1 class="mb-2">My Petitions</h1>
+        <a class="btn btn-primary p-2" [routerLink]="['/petition/add']" style="height: 44px;">New Petition</a>
+      </div>
+
+      <article class="card card-horizontal card-hover mb-3" *ngFor="let petition of petitionList | paginate: { itemsPerPage: 10, currentPage: p } ">
+
+        <div class="card-body p-4">
+          <p class="fs-sm mb-2" >{{petition.topic}}</p>
+          <h2 class="h4 mb-2">
+            {{petition.title}}
+          </h2>
+          <div class="d-flex fs-sm align-items-center pt-1 ps-2 ms-1 mt-n1">
+            {{petition.country}}, <span class="fw-semibold ms-1">{{petition.city}}</span>
+          </div>
+          <div class="mt-2 text-end text-nowrap">
+            <span class="fs-xs">
+              <i class="fas fa-signature"></i>&nbsp;&nbsp;{{petition.signatureCount}}
+            </span>
+            <span class="meta-divider"></span>
+            <span class="fs-xs">
+              <i class="fas fa-calendar-week"></i>&nbsp;&nbsp;{{petition.petitionDate | date : mediumDate}}
+            </span>
+            <span class="meta-divider"></span>
+            <span class="fs-xs">
+              <i class="fas fa-hourglass-half"></i>&nbsp;&nbsp;{{petition.updatedDate | date : mediumDate}}
+            </span>
+          </div>
+
+          <a class="btn btn-primary p-2" [routerLink]="['/petition', petition.id]">View</a>
+          &nbsp;
+          <a class="btn btn-primary p-2" [routerLink]="['/petition/update', petition.id]">Update</a>
+
+        </div>
+
+      </article>
+
+      <div class="my-pagination">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+      
+    </div>
+  </div>
+</div>
