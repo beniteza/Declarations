@@ -1,1 +1,77 @@
-<p>add-update-petition works!</p>
+<section class="container d-flex justify-content-center align-items-center pt-2 pb-4" style="flex: 1 0 auto;">
+
+  <div class="signin-form mt-3">
+    <div class="register-form-inner">
+      
+      <div id="signup-view">
+
+        <h1 class="h2 text-center">Petition</h1>
+        <p class="fs-ms text-muted mb-4 text-center">Enter the information related to your petition.</p>
+
+        <form [formGroup]="formModel" *ngIf="formModel" autocomplete="off" (submit)="onSubmit()">
+
+          <div class="row">
+
+            <div class="col-sm-12 form-group required mb-3">
+              <label class="form-label">Title</label>
+              <input class="form-control" type="text" formControlName="Title">
+              <label class="text-danger"
+                *ngIf="formModel.get('Title')!.touched && formModel.get('Title')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Topic</label>
+              <input class="form-control" type="text" formControlName="Topic">
+              <label class="text-danger"
+                *ngIf="formModel.get('Topic')!.touched && formModel.get('Topic')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Petition Date</label>
+              <input class="form-control" type="date" formControlName="PetitionDate">
+              <label class="text-danger"
+                *ngIf="formModel.get('PetitionDate')!.touched && formModel.get('PetitionDate')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">Country</label>
+              <input class="form-control" formControlName="Country">
+              <label class="text-danger"
+                *ngIf="formModel.get('Country')!.touched && formModel.get('Country')!.errors?.required">This
+                field is required.</label>
+            </div>
+          
+            <div class="col-sm-6 form-group required mb-3">
+              <label class="form-label">City</label>
+              <input class="form-control" formControlName="City">
+              <label class="text-danger"
+                *ngIf="formModel.get('City')!.touched && formModel.get('City')!.errors?.required">This
+                field is required.</label>
+            </div>
+          
+            <div class="col-sm-12 form-group required mb-3">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" rows="5" placeholder="Write your description here" formControlName="Description"></textarea>
+              <label class="text-danger"
+                *ngIf="formModel.get('Description')!.touched && formModel.get('Description')!.errors?.required">This
+                field is required.</label>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-12">
+              <button type="submit" class="btn btn-primary d-block w-100" [disabled]="!formModel.valid">Save</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</section>

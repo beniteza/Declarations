@@ -29,7 +29,7 @@ namespace WebAPI.Models.Petition
         public string City { get; set; }
 
 
-        [Required(ErrorMessage = "PetitionList is required")]
-        public List<PetitionSignatureModel> SignatureList { get; set; }
+        //[Required(ErrorMessage = "PetitionList is required")]
+        //public List<PetitionSignatureModel> SignatureList { get; set; }
     }
 }

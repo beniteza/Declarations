@@ -150,6 +150,7 @@ namespace WebAPI.Controllers
             petition.City = model.City;
 
             // Signatures
+            /*
             var signatureList = new List<PetitionSignature>();
 
             // Add
@@ -164,6 +165,7 @@ namespace WebAPI.Controllers
             }
 
             petition.PetitionSignatureList = signatureList;
+            */
 
             await _db.Petition.AddAsync(petition);
             var result = await _db.SaveChangesAsync();
@@ -200,6 +202,7 @@ namespace WebAPI.Controllers
             petition.City = model.City;
 
             // Signatures
+            /*
             var signatureList = petition.PetitionSignatureList;
 
             // Remove
@@ -235,6 +238,7 @@ namespace WebAPI.Controllers
                     });
                 }
             }
+            */
 
             var result = await _db.SaveChangesAsync();
 
