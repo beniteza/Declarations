@@ -1,5 +1,8 @@
+/* TODO Pagination */
 
-
+.my-pagination .ngx-pagination .current {
+  background: red !important;
+}
 
 /* Angular Notifier */
 

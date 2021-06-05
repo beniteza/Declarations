@@ -11,13 +11,14 @@ import { PetitionService } from 'src/app/services/petition.service';
 export class PetitionListComponent implements OnInit {
 
   petitionList: any[] = [];
+  p: number = 1;
 
   constructor(private router: Router, private service: PetitionService, private notifier: NotifierService) { }
 
   ngOnInit(): void {
 
     // TODO enable loading
-    
+
     this.service.getList().subscribe(
       (res: any) => {
         this.petitionList = res.result;

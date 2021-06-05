@@ -23,6 +23,7 @@ import { MyPetitionListComponent } from './components/petition/my-petition-list/
 import { UnauthorizedComponent } from './components/home/unauthorized/unauthorized.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { PageLoadingComponent } from './components/shared/page-loading/page-loading.component';
+import { NgxPaginationModule } from 'ngx-pagination'
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { PageLoadingComponent } from './components/shared/page-loading/page-load
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NotifierModule
+    NotifierModule,
+    NgxPaginationModule
   ],
   providers: [
     HomeService,
