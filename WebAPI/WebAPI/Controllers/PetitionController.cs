@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> List()
         {
-            var petitionList = await _db.Petition.ToListAsync();
+            var petitionList = await _db.Petition.Include(m => m.User).Include(m => m.PetitionSignatureList).ToListAsync();
             var list = new List<object>();
 
             foreach (var petition in petitionList)
@@ -38,10 +38,13 @@ namespace WebAPI.Controllers
                     id = petition.Id,
                     title = petition.Title,
                     description = petition.Description,
-                    userId = petition.UserId,
-                    submittedDate = petition.SubmittedDate,
+                    topic = petition.Topic,
+                    userName = petition.User.UserName,
+                    updatedDate = petition.UpdatedDate,
                     petitionDate = petition.PetitionDate,
-                    state = petition.State
+                    country = petition.Country,
+                    city = petition.City,
+                    signatureCount = petition.PetitionSignatureList.Count
                 });
             }
 
@@ -56,9 +59,9 @@ namespace WebAPI.Controllers
         [Route("MyPetitionList")]
         public async Task<IActionResult> MyPetitionList()
         {
-            var userId = new Guid(User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value);
+            var userId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
-            var petitionList = await _db.Petition.Where(x => x.UserId == userId).ToListAsync();
+            var petitionList = await _db.Petition.Include(m => m.PetitionSignatureList).Where(x => x.UserId == userId).ToListAsync();
             var list = new List<object>();
 
             foreach (var petition in petitionList)
@@ -67,11 +70,14 @@ namespace WebAPI.Controllers
                 {
                     petition.Id,
                     petition.Title,
+                    petition.Topic,
                     petition.Description,
                     petition.UserId,
-                    petition.SubmittedDate,
+                    petition.UpdatedDate,
                     petition.PetitionDate,
-                    petition.State
+                    petition.Country,
+                    petition.City,
+                    signatureCount = petition.PetitionSignatureList.Count
                 });
             }
 
@@ -115,10 +121,12 @@ namespace WebAPI.Controllers
                 petition.Id,
                 petition.Title,
                 petition.Description,
+                petition.Topic,
                 petition.UserId,
-                petition.SubmittedDate,
+                petition.UpdatedDate,
                 petition.PetitionDate,
-                petition.State,
+                petition.Country,
+                petition.City,
                 signatureList
             });
 
@@ -139,10 +147,12 @@ namespace WebAPI.Controllers
 
             petition.Title = model.Title;
             petition.Description = model.Description;
-            petition.UserId = new Guid(userId);
-            petition.SubmittedDate = DateTime.Now;
+            petition.Topic = model.Topic;
+            petition.UserId = userId;
+            petition.UpdatedDate = DateTime.Now;
             petition.PetitionDate = model.PetitionDate;
-            petition.State = model.State;
+            petition.Country = model.Country;
+            petition.City = model.City;
 
             // Signatures
             var signatureList = new List<PetitionSignature>();
@@ -191,10 +201,12 @@ namespace WebAPI.Controllers
 
             petition.Title = model.Title;
             petition.Description = model.Description;
-            petition.UserId = new Guid(userId);
-            petition.SubmittedDate = DateTime.Now;
+            petition.Topic = model.Topic;
+            petition.UserId = userId;
+            petition.UpdatedDate = DateTime.Now;
             petition.PetitionDate = model.PetitionDate;
-            petition.State = model.State;
+            petition.Country = model.Country;
+            petition.City = model.City;
 
             // Signatures
             var signatureList = petition.PetitionSignatureList;
@@ -253,7 +265,7 @@ namespace WebAPI.Controllers
             // Check if user allowed to delete
             string userId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
-            if (petition.UserId != new Guid(userId))
+            if (petition.UserId != userId)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User not authorized to delete" });
             }

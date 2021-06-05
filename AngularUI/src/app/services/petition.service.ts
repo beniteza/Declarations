@@ -26,8 +26,10 @@ export class PetitionService {
     var body = {
       title: formData.Title,
       description: formData.Description,
-      declarationDate: formData.DeclarationDate,
-      state: formData.State,
+      topic: formData.Topic,
+      petitionDate: formData.PetitionDate,
+      country: formData.Country,
+      city: formData.City,
       signatureList: formData.SignatureList
     };
 
@@ -39,8 +41,10 @@ export class PetitionService {
       id: formData.Id,
       title: formData.Title,
       description: formData.Description,
-      declarationDate: formData.DeclarationDate,
-      state: formData.State,
+      topic: formData.Topic,
+      petitionDate: formData.PetitionDate,
+      country: formData.Country,
+      city: formData.City,
       signatureList: formData.SignatureList
     };
 

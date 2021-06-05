@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
+import { PetitionService } from 'src/app/services/petition.service';
 
 @Component({
   selector: 'app-petition-list',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetitionListComponent implements OnInit {
 
-  constructor() { }
+  petitionList: any[] = [];
+
+  constructor(private router: Router, private service: PetitionService, private notifier: NotifierService) { }
 
   ngOnInit(): void {
+
+    // TODO enable loading
+    
+    this.service.getList().subscribe(
+      (res: any) => {
+        this.petitionList = res.result;
+
+        // TODO disable loading
+      },
+      err => {
+        this.notifier.notify('error', 'Error: Something went wrong!');
+        console.log(err);
+      },
+    );
   }
 
 }
