@@ -16,6 +16,9 @@ export class AccountInfoComponent implements OnInit {
   constructor(private fb: FormBuilder, public service: AccountService, private notifier: NotifierService) { }
 
   ngOnInit(): void {
+
+    document.querySelector('.page-loading').classList.add('active'); // Show loading
+
     this.service.getAccountInfo().subscribe(
       (res: any) => {
         this.formModel = this.fb.group({
@@ -29,8 +32,12 @@ export class AccountInfoComponent implements OnInit {
           AddressLine: [res.addressLine, Validators.required],
           ZipCode: [res.zipCode, [Validators.required, Validators.maxLength(5), Validators.minLength(5)]] // TODO custom validation
         });
+
+        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
       },
       err => {
+        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
+        this.notifier.notify('error', 'Error: Something went wrong!');
         console.log(err);
       },
     );
@@ -41,13 +48,13 @@ export class AccountInfoComponent implements OnInit {
       (res: any) => {
 
         if (res.succeeded) {
-          this.notifier.notify('success', 'Account update successful');
+          this.notifier.notify('success', 'Account info update successful');
         } 
         else {
           res.errors.forEach((element: any) => {
             switch (element.code) {
               default:
-                this.notifier.notify('error', 'Update failed.');
+                this.notifier.notify('error', 'Account info update failed.');
                 break;
             }
           });

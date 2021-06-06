@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
 
         if (res.succeeded) {
           this.formModel.reset();
-          this.notifier.notify('success', 'Success: New user created! Registration successful.');
+          this.notifier.notify('success', 'New user created! Registration successful.');
           this.router.navigateByUrl('/login');
         } 
         else {

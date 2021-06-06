@@ -13,7 +13,7 @@
           <div class="row">
 
             <div class="col-12 form-group required mb-3">
-              <label class="form-label">Username</label>
+              <label class="form-label">Username<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" type="text" formControlName="UserName">
               <label class="text-danger"
                 *ngIf="formModel.get('UserName')!.touched && formModel.get('UserName')!.errors?.required">This
@@ -21,7 +21,7 @@
             </div>
 
             <div class="col-12 form-group required mb-3">
-              <label class="form-label">Password</label>
+              <label class="form-label">Password<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" type="password" formControlName="Password">
               <label class="text-danger"
                 *ngIf="formModel.get('Password')!.touched && formModel.get('Password')!.errors?.required">This

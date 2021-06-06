@@ -17,15 +17,15 @@ export class MyPetitionListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // TODO enable loading
+    document.querySelector('.page-loading').classList.add('active'); // Show loading
 
     this.service.getMyList().subscribe(
       (res: any) => {
         this.petitionList = res.result;
-
-        // TODO disable loading
+        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
       },
       err => {
+        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
         this.notifier.notify('error', 'Error: Something went wrong!');
         console.log(err);
       },

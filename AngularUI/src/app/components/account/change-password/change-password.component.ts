@@ -38,7 +38,7 @@ export class ChangePasswordComponent implements OnInit {
                 break;
 
               default:
-                this.notifier.notify('error', 'Update failed.');
+                this.notifier.notify('error', 'Password update failed.');
                 break;
             }
           });

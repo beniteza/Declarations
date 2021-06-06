@@ -9,6 +9,7 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class NavbarComponent implements OnInit {
 
+  // TODO research the consequences of having an injected service as public
   constructor(private router: Router, public service: HomeService) { }
 
   ngOnInit(): void {

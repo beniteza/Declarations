@@ -37,6 +37,9 @@ export class AddUpdatePetitionComponent implements OnInit {
   }
 
   loadPetition(petitionId){
+
+    document.querySelector('.page-loading').classList.add('active'); // Show loading
+
     this.service.get(petitionId).subscribe(
       (res: any) => {
         this.formModel = this.fb.group({
@@ -48,8 +51,11 @@ export class AddUpdatePetitionComponent implements OnInit {
           Country: [res.country, Validators.required],
           City: [res.city, Validators.required]
         });
+        
+        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
       },
       err => {
+        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
         this.notifier.notify('error', 'Error: Something went wrong!');
         console.log(err);
       },

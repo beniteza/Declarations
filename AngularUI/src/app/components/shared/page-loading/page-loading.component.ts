@@ -12,11 +12,11 @@ export class PageLoadingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit() {
-    let preloader = document.querySelector('.page-loading');
-    // preloader.classList.remove('active');
-    setTimeout(function () {
-      preloader.remove();
-    }, 1000);
-  }
+  // ngAfterViewInit() {
+  //   let preloader = document.querySelector('.page-loading');
+  //   preloader.classList.remove('active');
+  //   setTimeout(function () {
+  //     preloader.remove();
+  //   }, 1000);
+  // }
 }

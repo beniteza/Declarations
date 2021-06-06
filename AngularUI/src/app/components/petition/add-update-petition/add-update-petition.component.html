@@ -13,7 +13,7 @@
           <div class="row">
 
             <div class="col-sm-12 form-group required mb-3">
-              <label class="form-label">Title</label>
+              <label class="form-label">Title<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" type="text" formControlName="Title">
               <label class="text-danger"
                 *ngIf="formModel.get('Title')!.touched && formModel.get('Title')!.errors?.required">This
@@ -21,7 +21,7 @@
             </div>
 
             <div class="col-sm-6 form-group required mb-3">
-              <label class="form-label">Topic</label>
+              <label class="form-label">Topic<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" type="text" formControlName="Topic">
               <label class="text-danger"
                 *ngIf="formModel.get('Topic')!.touched && formModel.get('Topic')!.errors?.required">This
@@ -29,7 +29,7 @@
             </div>
 
             <div class="col-sm-6 form-group required mb-3">
-              <label class="form-label">Petition Date</label>
+              <label class="form-label">Petition date<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" type="date" formControlName="PetitionDate">
               <label class="text-danger"
                 *ngIf="formModel.get('PetitionDate')!.touched && formModel.get('PetitionDate')!.errors?.required">This
@@ -37,7 +37,7 @@
             </div>
 
             <div class="col-sm-6 form-group required mb-3">
-              <label class="form-label">Country</label>
+              <label class="form-label">Country<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" formControlName="Country">
               <label class="text-danger"
                 *ngIf="formModel.get('Country')!.touched && formModel.get('Country')!.errors?.required">This
@@ -45,7 +45,7 @@
             </div>
           
             <div class="col-sm-6 form-group required mb-3">
-              <label class="form-label">City</label>
+              <label class="form-label">City<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" formControlName="City">
               <label class="text-danger"
                 *ngIf="formModel.get('City')!.touched && formModel.get('City')!.errors?.required">This
@@ -53,7 +53,7 @@
             </div>
           
             <div class="col-sm-12 form-group required mb-3">
-              <label class="form-label">Description</label>
+              <label class="form-label">Description<sup class="text-danger ms-1">*</sup></label>
               <textarea class="form-control" rows="5" placeholder="Write your description here" formControlName="Description"></textarea>
               <label class="text-danger"
                 *ngIf="formModel.get('Description')!.touched && formModel.get('Description')!.errors?.required">This

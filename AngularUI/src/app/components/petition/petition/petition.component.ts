@@ -22,11 +22,16 @@ export class PetitionComponent implements OnInit {
     const routeParams = this.activatedRoute.snapshot.paramMap;
     const petitionId = Number(routeParams.get('id'));
 
+    document.querySelector('.page-loading').classList.add('active'); // Show loading
+
     this.service.get(petitionId).subscribe(
       (res: any) => {
         this.petition = res;
+        
+        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
       },
       err => {
+        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
         this.notifier.notify('error', 'Error: Something went wrong!');
         console.log(err);
       },
@@ -46,7 +51,7 @@ export class PetitionComponent implements OnInit {
       (res: any) => {
         this.formModel.reset();
         this.petition.signatureList.unshift(res);
-        this.notifier.notify('success', 'Add successful');
+        this.notifier.notify('success', 'Post successful');
       },
       err => {
         this.notifier.notify('error', 'Error: Something went wrong!');
