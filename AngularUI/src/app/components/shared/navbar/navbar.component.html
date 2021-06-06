@@ -10,7 +10,8 @@
       Petitions
     </a>
 
-    <div class="d-flex align-items-center order-lg-3 ms-lg-auto">
+    <!-- Auth buttons -->
+    <div *ngIf="!service.isAuthenticated" class="d-flex align-items-center order-lg-3 ms-lg-auto">
       <a class="nav-link-style fs-sm text-nowrap" [routerLink]="['/login']">
         Login
       </a>
@@ -18,6 +19,17 @@
         Register
       </a>
     </div>
+    <!-- Account -->
+    <ul *ngIf="service.isAuthenticated" class="d-flex align-items-center order-lg-3 ms-lg-auto navbar-nav">
+      <li *ngIf="service.isAuthenticated" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Account</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/account-info']">Account Info</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/change-password']">Change Password</a></li>
+          <li ><a class="dropdown-item" style="cursor: pointer" (click)="onLogout()">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
 
     <div class="offcanvas offcanvas-collapse order-lg-2" id="primaryMenu">
 
@@ -35,17 +47,8 @@
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Petition</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" [routerLink]="['/petition/list']">All Petitions</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/petition/my-list']">My Petitions</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/petition/add']">New Petition</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown active">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Account</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="['/account-info']">Account Info</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/change-password']">Change Password</a></li>
-              <li><a class="dropdown-item" href="#" (click)="onLogout()">Logout</a></li>
+              <li *ngIf="service.isAuthenticated"><a class="dropdown-item" [routerLink]="['/petition/my-list']">My Petitions</a></li>
+              <li *ngIf="service.isAuthenticated"><a class="dropdown-item" [routerLink]="['/petition/add']">New Petition</a></li>
             </ul>
           </li>
 

@@ -87,7 +87,7 @@
 
       <!-- Signatures-->
       <div class="pb-4 mb-5" id="signatures">
-        <h2 class="h3 pb-4">{{petition.signatureList.length}} Signatures</h2>
+        <h2 class="h3 pb-4">Signatures ({{petition.signatureList.length}})</h2>
 
         <div class="signature" *ngFor="let signature of petition.signatureList | paginate: { itemsPerPage: 10, currentPage: p } ">
           <div class="d-flex justify-content-between">

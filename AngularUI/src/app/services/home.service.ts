@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class HomeService {
 
+  public isAuthenticated: boolean = false;
   readonly baseURI = 'http://localhost:55022/api/home';
 
   constructor(private http: HttpClient) { }
