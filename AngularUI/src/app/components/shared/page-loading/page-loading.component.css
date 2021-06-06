@@ -14,7 +14,7 @@
   z-index: 9999;
 }
 .page-loading.active {
-  opacity: 1;
+  opacity: 0.50;
   visibility: visible;
 }
 .page-loading-inner {

@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/router": "~11.2.9",
     "angular-notifier": "^9.0.1",
+    "ngx-mask": "^12.0.0",
     "ngx-pagination": "^5.1.0",
     "rxjs": "~6.6.0",
     "tiny-emitter": "^2.1.0",

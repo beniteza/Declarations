@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
       Country: ['', Validators.required], // TODO DDL
       City: ['', Validators.required],
       AddressLine: ['', Validators.required],
-      ZipCode: ['', [Validators.required, Validators.maxLength(5), Validators.minLength(5)]], // TODO custom validation
+      ZipCode: ['', [Validators.required, Validators.maxLength(5), Validators.minLength(5)]], 
       UserName: ['', Validators.required],
       Passwords: this.fb.group({
         Password: ['', [Validators.required, Validators.minLength(4)]],

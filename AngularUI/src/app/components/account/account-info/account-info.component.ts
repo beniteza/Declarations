@@ -31,7 +31,7 @@ export class AccountInfoComponent implements OnInit {
           Country: [res.country, Validators.required], // TODO DDL
           City: [res.city, Validators.required],
           AddressLine: [res.addressLine, Validators.required],
-          ZipCode: [res.zipCode, [Validators.required, Validators.maxLength(5), Validators.minLength(5)]] // TODO custom validation
+          ZipCode: [res.zipCode, [Validators.required, Validators.maxLength(5), Validators.minLength(5)]]
         });
 
         this.loading.showLoading(false);

@@ -47,9 +47,9 @@ export class AddUpdatePetitionComponent implements OnInit {
           Id: [res.id],
           Title: [res.title, Validators.required],
           Description: [res.description, Validators.required],
-          Topic: [res.topic, Validators.required],
+          Topic: [res.topic, Validators.required], // TODO DDL
           PetitionDate: [formatDate(new Date(res.petitionDate), 'yyyy-MM-dd', 'en'), Validators.required],
-          Country: [res.country, Validators.required],
+          Country: [res.country, Validators.required], // TODO DDL
           City: [res.city, Validators.required]
         });
         

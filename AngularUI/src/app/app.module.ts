@@ -23,7 +23,12 @@ import { MyPetitionListComponent } from './components/petition/my-petition-list/
 import { UnauthorizedComponent } from './components/home/unauthorized/unauthorized.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { PageLoadingComponent } from './components/shared/page-loading/page-loading.component';
-import { NgxPaginationModule } from 'ngx-pagination'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -49,7 +54,8 @@ import { NgxPaginationModule } from 'ngx-pagination'
     FormsModule,
     HttpClientModule,
     NotifierModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxMaskModule.forRoot(maskConfig)
   ],
   providers: [
     HomeService,

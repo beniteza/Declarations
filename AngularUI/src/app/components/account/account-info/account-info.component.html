@@ -78,7 +78,7 @@
           
             <div class="col-sm-6 form-group required mb-3">
               <label class="form-label">Zip code<sup class="text-danger ms-1">*</sup></label>
-              <input class="form-control" formControlName="ZipCode">
+              <input class="form-control" formControlName="ZipCode" mask="00000">
               <label class="text-danger form-label"
                 *ngIf="formModel.get('ZipCode')!.touched && formModel.get('ZipCode')!.errors?.required">This
                 field is required.</label>
