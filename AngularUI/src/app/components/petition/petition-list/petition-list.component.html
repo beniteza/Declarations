@@ -32,7 +32,7 @@
 
       </article>
 
-      <div class="my-pagination">
+      <div class="my-pagination" *ngIf="petitionList.length > 0">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
       
