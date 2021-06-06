@@ -1,7 +1,12 @@
 /* TODO Pagination */
 
+.my-pagination .ngx-pagination {
+  font-family: "Inter", sans-serif;
+}
+
 .my-pagination .ngx-pagination .current {
-  background: red !important;
+  background: #766df4 !important;
+  border-radius: 0.75rem;
 }
 
 /* Angular Notifier */

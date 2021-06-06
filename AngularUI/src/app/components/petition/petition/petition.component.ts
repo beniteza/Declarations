@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+import { PageLoadingService } from 'src/app/services/page-loading.service';
 import { PetitionService } from 'src/app/services/petition.service';
 
 @Component({
@@ -15,23 +16,23 @@ export class PetitionComponent implements OnInit {
   formModel: FormGroup;
   p: number = 1;
 
-  constructor(private fb: FormBuilder, private router: Router, private service: PetitionService, private activatedRoute: ActivatedRoute, private notifier: NotifierService) { }
+  constructor(private fb: FormBuilder, private router: Router, private service: PetitionService, private activatedRoute: ActivatedRoute, private notifier: NotifierService, private loading: PageLoadingService) { }
 
   ngOnInit(): void {
     // Get param from route.
     const routeParams = this.activatedRoute.snapshot.paramMap;
     const petitionId = Number(routeParams.get('id'));
 
-    document.querySelector('.page-loading').classList.add('active'); // Show loading
+    this.loading.showLoading(true);
 
     this.service.get(petitionId).subscribe(
       (res: any) => {
         this.petition = res;
         
-        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
+        this.loading.showLoading(false);
       },
       err => {
-        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
+        this.loading.showLoading(false);
         this.notifier.notify('error', 'Error: Something went wrong!');
         console.log(err);
       },

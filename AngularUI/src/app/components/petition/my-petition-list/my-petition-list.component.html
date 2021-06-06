@@ -7,7 +7,7 @@
         <a class="btn btn-primary p-2" [routerLink]="['/petition/add']" style="height: 44px;">New Petition</a>
       </div>
 
-      <article class="card card-horizontal card-hover mb-3" *ngFor="let petition of petitionList | paginate: { itemsPerPage: 10, currentPage: p } ">
+      <article class="card card-horizontal card-hover mb-3" *ngFor="let petition of petitionList | paginate: { itemsPerPage: 5, currentPage: p } ">
 
         <div class="card-body p-4">
           <p class="fs-sm mb-2" >{{petition.topic}}</p>

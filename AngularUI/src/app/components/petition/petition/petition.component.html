@@ -53,21 +53,21 @@
           <div class="col-sm-3 mb-3">
             <label class="form-label">First name<sup class="text-danger ms-1">*</sup></label>
             <input class="form-control" type="text" formControlName="FirstName">
-            <label class="text-danger"
+            <label class="text-danger form-label"
               *ngIf="formModel.get('FirstName')!.touched && formModel.get('FirstName')!.errors?.required">This
               field is required.</label>
           </div>
           <div class="col-sm-3 mb-3">
             <label class="form-label">Last name<sup class="text-danger ms-1">*</sup></label>
             <input class="form-control" type="text" formControlName="LastName">
-            <label class="text-danger"
+            <label class="text-danger form-label"
               *ngIf="formModel.get('LastName')!.touched && formModel.get('LastName')!.errors?.required">This
               field is required.</label>
           </div>
           <div class="col-sm-6 mb-3">
             <label class="form-label">Email <sup class="text-danger ms-1">*</sup></label>
             <input class="form-control" type="email" formControlName="Email">
-            <label class="text-danger"
+            <label class="text-danger form-label"
               *ngIf="formModel.get('Email')!.touched && formModel.get('Email')!.errors?.required">This
               field is required.</label>
           </div>
@@ -75,7 +75,7 @@
         <div class="mb-3">
           <label class="form-label">Message<sup class="text-danger ms-1">*</sup></label>
           <textarea class="form-control" rows="3" placeholder="Write your message here" formControlName="Message"></textarea>
-          <label class="text-danger"
+          <label class="text-danger form-label"
             *ngIf="formModel.get('Message')!.touched && formModel.get('Message')!.errors?.required">This
             field is required.</label>
         </div>
@@ -89,7 +89,7 @@
       <div class="pb-4 mb-5" id="signatures">
         <h2 class="h3 pb-4">Signatures ({{petition.signatureList.length}})</h2>
 
-        <div class="signature" *ngFor="let signature of petition.signatureList | paginate: { itemsPerPage: 10, currentPage: p } ">
+        <div class="signature" *ngFor="let signature of petition.signatureList | paginate: { itemsPerPage: 5, currentPage: p } ">
           <div class="d-flex justify-content-between">
             <h6 class="nav-heading mb-1">{{signature.firstName}} {{signature.lastName}} ({{signature.email}})</h6>
             <small>{{signature.submittedDate | date : 'MMM d, y'}}</small>

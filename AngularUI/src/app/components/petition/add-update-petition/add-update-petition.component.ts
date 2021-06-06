@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+import { PageLoadingService } from 'src/app/services/page-loading.service';
 import { PetitionService } from 'src/app/services/petition.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class AddUpdatePetitionComponent implements OnInit {
   formModel: FormGroup;
   petitionId: number;
 
-  constructor(private fb: FormBuilder, private router: Router, private service: PetitionService, private activatedRoute: ActivatedRoute, private notifier: NotifierService) { }
+  constructor(private fb: FormBuilder, private router: Router, private service: PetitionService, private activatedRoute: ActivatedRoute, private notifier: NotifierService, private loading: PageLoadingService) { }
 
   ngOnInit(): void {
     if(this.router.url.includes('/update/')){
@@ -38,7 +39,7 @@ export class AddUpdatePetitionComponent implements OnInit {
 
   loadPetition(petitionId){
 
-    document.querySelector('.page-loading').classList.add('active'); // Show loading
+    this.loading.showLoading(true);
 
     this.service.get(petitionId).subscribe(
       (res: any) => {
@@ -52,10 +53,10 @@ export class AddUpdatePetitionComponent implements OnInit {
           City: [res.city, Validators.required]
         });
         
-        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
+        this.loading.showLoading(false);
       },
       err => {
-        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
+        this.loading.showLoading(false);
         this.notifier.notify('error', 'Error: Something went wrong!');
         console.log(err);
       },

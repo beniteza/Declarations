@@ -15,7 +15,7 @@
             <div class="col-12 form-group required mb-3">
               <label class="form-label">Username<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" type="text" formControlName="UserName">
-              <label class="text-danger"
+              <label class="text-danger form-label"
                 *ngIf="formModel.get('UserName')!.touched && formModel.get('UserName')!.errors?.required">This
                 field is required.</label>
             </div>
@@ -23,7 +23,7 @@
             <div class="col-12 form-group required mb-3">
               <label class="form-label">Password<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" type="password" formControlName="Password">
-              <label class="text-danger"
+              <label class="text-danger form-label"
                 *ngIf="formModel.get('Password')!.touched && formModel.get('Password')!.errors?.required">This
                 field is required.</label>
             </div>

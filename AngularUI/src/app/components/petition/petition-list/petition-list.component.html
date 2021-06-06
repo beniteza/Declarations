@@ -3,7 +3,7 @@
     <div class="col-lg-9">
       <h1 class="mb-2">Petitions</h1>
 
-      <article class="card card-horizontal card-hover mb-3" *ngFor="let petition of petitionList | paginate: { itemsPerPage: 10, currentPage: p } ">
+      <article class="card card-horizontal card-hover mb-3" *ngFor="let petition of petitionList | paginate: { itemsPerPage: 5, currentPage: p } ">
 
         <div class="card-body p-4">
           <p class="fs-sm mb-2" >{{petition.topic}}</p>

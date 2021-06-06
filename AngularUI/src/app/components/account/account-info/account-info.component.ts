@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotifierService } from 'angular-notifier';
 import { AccountService } from 'src/app/services/account.service';
+import { PageLoadingService } from 'src/app/services/page-loading.service';
 
 @Component({
   selector: 'app-account-info',
@@ -13,11 +14,11 @@ export class AccountInfoComponent implements OnInit {
 
   formModel: FormGroup;
 
-  constructor(private fb: FormBuilder, public service: AccountService, private notifier: NotifierService) { }
+  constructor(private fb: FormBuilder, public service: AccountService, private notifier: NotifierService, private loading: PageLoadingService) { }
 
   ngOnInit(): void {
 
-    document.querySelector('.page-loading').classList.add('active'); // Show loading
+    this.loading.showLoading(true);
 
     this.service.getAccountInfo().subscribe(
       (res: any) => {
@@ -33,10 +34,10 @@ export class AccountInfoComponent implements OnInit {
           ZipCode: [res.zipCode, [Validators.required, Validators.maxLength(5), Validators.minLength(5)]] // TODO custom validation
         });
 
-        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
+        this.loading.showLoading(false);
       },
       err => {
-        document.querySelector('.page-loading').classList.remove('active'); // Hide loading
+        this.loading.showLoading(false);
         this.notifier.notify('error', 'Error: Something went wrong!');
         console.log(err);
       },
