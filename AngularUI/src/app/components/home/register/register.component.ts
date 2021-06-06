@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
       FirstName: ['', Validators.required],
       LastName: ['', Validators.required],
       Email: ['', [Validators.required, Validators.email]],
-      DateOfBirth: ['', Validators.required], // TODO custom control
+      DateOfBirth: ['', Validators.required],
       Country: ['', Validators.required], // TODO DDL
       City: ['', Validators.required],
       AddressLine: ['', Validators.required],

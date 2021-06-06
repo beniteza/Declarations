@@ -27,7 +27,7 @@ export class AccountInfoComponent implements OnInit {
           LastName: [res.lastName, Validators.required],
           UserName: [res.userName],
           Email: [res.email, [Validators.required, Validators.email]],
-          DateOfBirth: [formatDate(new Date(res.dateOfBirth), 'yyyy-MM-dd', 'en'), Validators.required], // TODO custom control
+          DateOfBirth: [formatDate(new Date(res.dateOfBirth), 'yyyy-MM-dd', 'en'), Validators.required],
           Country: [res.country, Validators.required], // TODO DDL
           City: [res.city, Validators.required],
           AddressLine: [res.addressLine, Validators.required],
