@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.IO;
+using System.Collections.Generic;
 
 namespace WebAPI
 {
@@ -84,8 +86,8 @@ namespace WebAPI
 
             // Azure Deployed
             //app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-            //app.UseDefaultFiles();
-            //app.UseStaticFiles();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -100,12 +102,29 @@ namespace WebAPI
                 string path = context.Request.Path.Value;
 
                 if (path.StartsWith("/api/"))
+                //if(path.StartsWith("/"))
                 {
                     var tokens = antiforgery.GetAndStoreTokens(context);
                     context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken, new CookieOptions() { HttpOnly = false });
                 }
                 return next();
             });
+
+            //-----------
+           // app.Use(async (context, next) =>
+           // {
+
+           //     await next();
+
+           //     if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+           //     {
+           //         context.Request.Path = "/";
+           //         await next();
+           //     }
+           // })
+           //.UseDefaultFiles(new DefaultFilesOptions { DefaultFileNames = new List<string> { "/" } })
+           //.UseStaticFiles();
+            //-----------
 
             app.UseEndpoints(endpoints =>
             {

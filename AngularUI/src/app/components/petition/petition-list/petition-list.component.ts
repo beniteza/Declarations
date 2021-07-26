@@ -33,4 +33,8 @@ export class PetitionListComponent implements OnInit {
     );
   }
 
+  goToPetition(id) {
+    this.router.navigate(['/petition', id]);
+  }
+
 }

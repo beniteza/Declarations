@@ -1,9 +1,9 @@
-<section class="container d-flex justify-content-center align-items-center pt-2 pb-4" style="flex: 1 0 auto;">
+<section class="container-fluid bg-primary">
 
-  <div class="signin-form mt-3">
-    <div class="signin-form-inner">
+  <div class="row justify-content-center">
+    <div class="col-9 col-sm-6 col-md-4 col-xl-3">
       
-      <div id="signup-view">
+      <div id="form-container" class="bg-white p-4 my-4">
 
         <h1 class="h2 text-center">Login</h1>
         <p class="fs-ms text-muted mb-4 text-center">Sign in to your account using the username and password provided during registration.</p>
@@ -37,7 +37,7 @@
             </div>
           </div>
 
-          <p class="fs-sm pt-3 mb-0 text-center">Don't have an account? <a class='fw-medium' [routerLink]="['/register']">Register</a></p>
+          <p class="fs-sm pt-0 mb-0 text-center">Don't have an account? <a class='fw-medium' [routerLink]="['/register']">Register</a></p>
 
         </form>
 

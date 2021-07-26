@@ -1,9 +1,9 @@
-<section class="container d-flex justify-content-center align-items-center pt-2 pb-4" style="flex: 1 0 auto;">
+<section class="container-fluid bg-primary">
 
-  <div class="signin-form mt-3">
-    <div class="register-form-inner">
+  <div class="row justify-content-center">
+    <div class="col-9 col-sm-8 col-md-7 col-xl-5">
       
-      <div id="signup-view">
+      <div id="form-container" class="bg-white p-4 my-4">
 
         <h1 class="h2 text-center">Register</h1>
         <p class="fs-ms text-muted mb-4 text-center">Registration allows you to submit petitions!</p>
@@ -12,7 +12,7 @@
 
           <div class="row">
 
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">First name<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" type="text" formControlName="FirstName">
               <label class="text-danger form-label"
@@ -20,7 +20,7 @@
                 field is required.</label>
             </div>
 
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">Last name<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" type="text" formControlName="LastName">
               <label class="text-danger form-label"
@@ -28,7 +28,7 @@
                 field is required.</label>
             </div>
 
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">Username<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" formControlName="UserName">
               <label class="text-danger form-label"
@@ -36,7 +36,7 @@
                 field is required.</label>
             </div>
 
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">Email<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" formControlName="Email">
               <label class="text-danger form-label"
@@ -47,7 +47,7 @@
                 address.</label>
             </div>
 
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">Date of birth<sup class="text-danger ms-1">*</sup></label>
               <input type="date" class="form-control" formControlName="DateOfBirth">
               <label class="text-danger form-label"
@@ -55,7 +55,7 @@
                 field is required.</label>
             </div>
 
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">Country<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" formControlName="Country">
               <label class="text-danger form-label"
@@ -71,7 +71,7 @@
                 field is required.</label>
             </div>
           
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">City<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" formControlName="City">
               <label class="text-danger form-label"
@@ -79,7 +79,7 @@
                 field is required.</label>
             </div>
           
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">Zip code<sup class="text-danger ms-1">*</sup></label>
               <input class="form-control" formControlName="ZipCode" mask="00000">
               <label class="text-danger form-label"
@@ -94,7 +94,7 @@
         
           <div formGroupName="Passwords" class="row">
         
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">Password<sup class="text-danger ms-1">*</sup></label>
               <input type="password" class="form-control" formControlName="Password">
               <label class="text-danger form-label"
@@ -105,7 +105,7 @@
                 4 characters required.</label>
             </div>
         
-            <div class="col-sm-6 form-group required mb-3">
+            <div class="col-12 col-lg-6 form-group required mb-3">
               <label class="form-label">Confirm password<sup class="text-danger ms-1">*</sup></label>
               <input type="password" class="form-control" formControlName="ConfirmPassword">
               <label class="text-danger form-label"
@@ -124,7 +124,7 @@
             </div>
           </div>
 
-          <p class="fs-sm pt-3 mb-0 text-center">Already have an account? <a class='fw-medium' [routerLink]="['/login']">Login</a></p>
+          <p class="fs-sm pt-0 mb-0 text-center">Already have an account? <a class='fw-medium' [routerLink]="['/login']">Login</a></p>
 
         </form>
 

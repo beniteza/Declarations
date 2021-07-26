@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class PetitionService {
 
   readonly baseURI = 'http://localhost:55022/api/petition';
+//   readonly baseURI = '/api/petition';
 
   constructor(private http: HttpClient) { }
 

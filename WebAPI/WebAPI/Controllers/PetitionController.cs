@@ -13,6 +13,7 @@ using WebAPI.Models.Petition;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
+    //[Route("[controller]")]
     [ApiController]
     [Authorize]
     public class PetitionController : ControllerBase

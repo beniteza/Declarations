@@ -15,6 +15,7 @@ using WebAPI.Models.Home;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
+    //[Route("[controller]")]
     [ApiController]
     public class HomeController : ControllerBase
     {

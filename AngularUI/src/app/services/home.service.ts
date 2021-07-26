@@ -8,6 +8,7 @@ export class HomeService {
 
   public isAuthenticated: boolean = false;
   readonly baseURI = 'http://localhost:55022/api/home';
+//   readonly baseURI = '/api/home';
 
   constructor(private http: HttpClient) { }
 

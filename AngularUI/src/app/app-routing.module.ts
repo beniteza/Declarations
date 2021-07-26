@@ -14,7 +14,7 @@ import { PetitionComponent } from './components/petition/petition/petition.compo
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/petition/list', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'about', component: AboutComponent},

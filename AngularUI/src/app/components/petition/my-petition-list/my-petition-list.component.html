@@ -1,10 +1,10 @@
-<div class="container py-4 mb-2 mb-sm-0 pb-sm-5">
+<section class="container bg-primary mt-2">
   <div class="row justify-content-center">
-    <div class="col-lg-9">
+    <div class="col-9 bg-light px-4">
 
-      <div class="d-flex justify-content-between" >
+      <div class="d-flex justify-content-between my-2" >
         <h1 class="mb-2">My Petitions</h1>
-        <a class="btn btn-primary p-2" [routerLink]="['/petition/add']" style="height: 44px;">New Petition</a>
+        <a class="btn btn-primary p-2" [routerLink]="['/petition/add']">New Petition</a>
       </div>
 
       <article class="card card-horizontal card-hover mb-3" *ngFor="let petition of petitionList | paginate: { itemsPerPage: 5, currentPage: p } ">
@@ -21,11 +21,11 @@
             <span class="fs-xs">
               <i class="fas fa-signature"></i>&nbsp;&nbsp;{{petition.signatureCount}}
             </span>
-            <span class="meta-divider"></span>
+            &nbsp;
             <span class="fs-xs">
               <i class="fas fa-calendar-week"></i>&nbsp;&nbsp;{{petition.petitionDate | date : mediumDate}}
             </span>
-            <span class="meta-divider"></span>
+            &nbsp;
             <span class="fs-xs">
               <i class="fas fa-hourglass-half"></i>&nbsp;&nbsp;{{petition.updatedDate | date : mediumDate}}
             </span>
@@ -45,4 +45,4 @@
       
     </div>
   </div>
-</div>
+</section>

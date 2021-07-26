@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class AccountService {
 
   readonly baseURI = 'http://localhost:55022/api/account';
+//   readonly baseURI = '/api/account';
 
   constructor(private http: HttpClient) { }
 
